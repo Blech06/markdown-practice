@@ -47,4 +47,4 @@
 1. Убедитесь, что у вас установлен **Python 3.8+**.
 2. Склонируйте репозиторий:
    ```bash
-   git clone https://github.com/yourusername/passwordforge.git
+    git clone https://github.com/yourusername/passwordforge.git](https://github.com/Blech06/markdown-practice.git
