@@ -1,0 +1,35 @@
+@startuml
+
+actor Покупатель as customer
+actor Администратор as admin
+actor "Платёжная система" as paymentSystem
+
+rectangle "Интернет-магазин" {
+  usecase "Регистрация" as UC_Register
+  usecase "Поиск товаров" as UC_Search
+  usecase "Добавление в корзину" as UC_AddToCart
+  usecase "Оформление заказа" as UC_Checkout
+  usecase "Оплата" as UC_Pay
+  usecase "Просмотр истории заказов" as UC_OrderHistory
+  usecase "Управление каталогом" as UC_ManageCatalog
+  usecase "Аутентификация" as UC_Auth
+  usecase "Применение промокода" as UC_Promo
+}
+
+customer --> UC_Register
+customer --> UC_Search
+customer --> UC_AddToCart
+customer --> UC_Checkout
+customer --> UC_Pay
+customer --> UC_OrderHistory
+
+admin --> UC_ManageCatalog
+admin --> UC_OrderHistory
+
+paymentSystem --> UC_Pay
+
+UC_Checkout <. UC_Auth : <<include>>
+UC_OrderHistory <. UC_Auth : <<include>>
+UC_Pay <.. UC_Promo : <<extend>>
+
+@enduml
